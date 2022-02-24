@@ -1,5 +1,7 @@
 #pragma once
 
+
+#define E_OK 0x01
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
@@ -13,7 +15,7 @@ typedef enum {
   
 } BreachType;
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit);
+BreachType inferBreach(float value, float lowerLimit, float upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
 typedef enum {
@@ -27,7 +29,7 @@ typedef struct {
 } BatteryCharacter;
 
 void checkAndAlert(
-  AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+  AlertTarget alertTarget, BatteryCharacter batteryChar, float temperatureInC);
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);

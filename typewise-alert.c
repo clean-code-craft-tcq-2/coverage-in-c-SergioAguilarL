@@ -39,7 +39,6 @@ void checkAndAlert(
 
 void sendToController(BreachType breachType) {
 
-    unsigned char retVal = E_OK;
     const unsigned short header = 0xfeed;
     printf("%x : %x\n", header, breachType);
 }

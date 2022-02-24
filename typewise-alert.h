@@ -1,7 +1,5 @@
 #pragma once
 
-
-#define E_OK 0x01
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,

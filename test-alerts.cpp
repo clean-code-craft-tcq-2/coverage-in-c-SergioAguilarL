@@ -27,6 +27,15 @@ TEST_CASE("checking alert to den to controller")
     checkAndAlert(TO_CONTROLLER,test_batteryChar,50.0);
 }
 
+/*TC3 checkAndAlert*/
+TEST_CASE("checking alert to den to controller")
+{
+    BatteryCharacter test_batteryChar;
+
+    test_batteryChar.coolingType =HI_ACTIVE_COOLING;
+    checkAndAlert(TO_CONTROLLER,test_batteryChar,50.0);
+}
+
 /*TC4 checkAndAlert*/
 TEST_CASE("checking alert to den to EMAIL")
 {
@@ -34,4 +43,22 @@ TEST_CASE("checking alert to den to EMAIL")
 
     test_batteryChar.coolingType =HI_ACTIVE_COOLING;
     checkAndAlert(TO_EMAIL,test_batteryChar,50.0);
+}
+
+/*TC5 checkAndAlert*/
+TEST_CASE("checking alert to den to controller")
+{
+    BatteryCharacter test_batteryChar;
+
+    test_batteryChar.coolingType =HI_ACTIVE_COOLING;
+    checkAndAlert(TO_CONTROLLER,test_batteryChar,-10.0);
+}
+
+/*TC6 checkAndAlert*/
+TEST_CASE("checking alert to den to EMAIL")
+{
+    BatteryCharacter test_batteryChar;
+
+    test_batteryChar.coolingType =HI_ACTIVE_COOLING;
+    checkAndAlert(TO_EMAIL,test_batteryChar,-10.0);
 }

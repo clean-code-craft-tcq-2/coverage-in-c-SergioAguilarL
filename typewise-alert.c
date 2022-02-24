@@ -1,7 +1,8 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
+BreachType inferBreach(float value, float lowerLimit, float upperLimit) {
+
   if(value < lowerLimit) {
     return TOO_LOW;
   }
@@ -12,28 +13,15 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 }
 
 BreachType classifyTemperatureBreach(
-    CoolingType coolingType, double temperatureInC) {
-  int lowerLimit = 0;
-  int upperLimit = 0;
-  switch(coolingType) {
-    case PASSIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 35;
-      break;
-    case HI_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 45;
-      break;
-    case MED_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 40;
-      break;
-  }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+CoolingType coolingType, float temperatureInC) {
+    float coolingTypeUpperlimit [3] = {35.0,45.0,40.0};
+    float lowerLimit = 0.0;
+    float upperLimit = coolingTypeUpperlimit[coolingType];
+    return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
 void checkAndAlert(
-    AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
+    AlertTarget alertTarget, BatteryCharacter batteryChar, float temperatureInC) {
 
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
@@ -56,16 +44,9 @@ void sendToController(BreachType breachType) {
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
-  switch(breachType) {
-    case TOO_LOW:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
-      break;
-    case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
-      break;
-    case NORMAL:
-      break;
-  }
+  const char* temperatueStatus[] = {"low", "high"};
+    printf("To: %s\n", recepient);
+    printf("Hi, the temperature is too");
+    printf("%s",temperatueStatus[breachType]);
+
 }

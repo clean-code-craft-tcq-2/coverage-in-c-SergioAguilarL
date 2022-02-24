@@ -28,7 +28,7 @@ TEST_CASE("checking alert to den to controller")
 }
 
 /*TC3 checkAndAlert*/
-TEST_CASE("checking alert to den to controller")
+TEST_CASE("checking alert to den to controller temperature to high")
 {
     BatteryCharacter test_batteryChar;
 
@@ -37,7 +37,7 @@ TEST_CASE("checking alert to den to controller")
 }
 
 /*TC4 checkAndAlert*/
-TEST_CASE("checking alert to den to EMAIL")
+TEST_CASE("checking alert to den to EMAIL to high")
 {
     BatteryCharacter test_batteryChar;
 
@@ -46,7 +46,7 @@ TEST_CASE("checking alert to den to EMAIL")
 }
 
 /*TC5 checkAndAlert*/
-TEST_CASE("checking alert to den to controller")
+TEST_CASE("checking alert to den to controller to loo")
 {
     BatteryCharacter test_batteryChar;
 
@@ -55,7 +55,7 @@ TEST_CASE("checking alert to den to controller")
 }
 
 /*TC6 checkAndAlert*/
-TEST_CASE("checking alert to den to EMAIL")
+TEST_CASE("checking alert to den to EMAIL to loo")
 {
     BatteryCharacter test_batteryChar;
 

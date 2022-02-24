@@ -42,12 +42,10 @@ void sendToController(BreachType breachType) {
     unsigned char retVal = E_OK;
     const unsigned short header = 0xfeed;
     printf("%x : %x\n", header, breachType);
-    retun retVal;
 }
 
 void sendToEmail(BreachType breachType) {
 
-  
   const char* recepient = "a.b@c.com";
   const char* temperatueStatus[] = {"low", "high"};
     printf("To: %s\n", recepient);
